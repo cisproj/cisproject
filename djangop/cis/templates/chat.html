@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chatbot</title>
+    <!-- <link rel="stylesheet" type="text/css" href="interface.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  /* background-image: url("https://imageio.forbes.com/specials-images/imageserve/5ed68e8310716f0007411996/A-black-screen--like-the-one-that-overtook-the-internet-on-the-morning-of-June-2-/960x0.jpg?format=jpg&width=960"); */
+  /* background: repeating-linear-gradient(to right, #8f26d0, #e3670e); */
+  background-color: rgba(52,53,65);
+  margin: 0;
+  height: auto;
+  ::-webkit-scrollbar{
+    display: none;
+  }
+}
+ 
+.container {
+  display: flex;
+  height: 100vh;
+  border-radius: 0px;
+  
+}
+
+.chatbox {
+  flex: 4;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.header h1{
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: rgba(236,236,241);
+}
+.logo img {
+  height: 40px;
+  width: 40px;
+  border-radius: 5px;
+}
+
+a:link {
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgb(184, 48, 48);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: rgb(62, 33, 177);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+#chatbot {
+  flex: 1;
+  overflow-y: scroll;
+  margin-left: auto;
+  margin-right: auto;
+  width: 70%;
+  margin-top: 50px;
+  border-radius: 10px;
+  border: 2px solid rgb(0, 0, 0); 
+  padding: 50px;
+  
+}
+
+::-webkit-scrollbar{
+    display: none;
+  }
+.botText{
+  font-size: 14px;
+  font-family: monospace;
+  text-align: left;
+  line-height: 25px;
+  color: rgba(236,236,241);
+}
+
+#userInput{
+  font-family: monospace;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  width: 80%;
+  text-align: center;
+}
+
+#textInput{
+  border: 3px solid white;
+  border-bottom: 3px solid gray;
+  font-family: monospace;
+  font-size: 14px;
+  width: 60%;
+  padding: 16px;
+  color: rgb(0, 0, 0);
+  border-radius: 5px;
+}
+
+#buttonInput{
+  padding: 16px;
+  font-family: monospace;
+  font-size: 14px;
+  border: 3px solid #5b605c;
+  background-color: rgb(48, 48, 40);
+  color: white;
+  border-radius: 10px;
+}
+
+.userText{
+  text-align: right;
+  font-family: monospace;
+  font-size: 14px;
+  line-height: 25px;
+  color: rgba(236,236,241);
+}
+
+
+    </style>
+
+  <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+
+</head>
+<body>
+    <div class="container">
+        <!-- <div class="sidebar"> -->
+            <!-- <h2>Chat History</h2> -->
+            <!-- <ul class="history-list"> -->
+                <!-- Chat history items will be dynamically added here -->
+            <!-- </ul> -->
+            <!-- <button id="delete-history-btn">Delete History</button> -->
+        <!-- </div> -->
+        <div class="chatbox">
+            <div class="header">
+                <div class="logo">
+                    <img src="https://img.freepik.com/premium-vector/ai-technology-digital-artificial-intelligence-future-circuit-electronic-colorful-vector-logo-design_216988-1080.jpg" alt="Website Logo">
+                </div>
+                <div class="text">
+                    <h1>
+                        Ask Anything About College Of Engineering Kottarakkara
+                    </h1>
+                </div>
+                <div class="button">
+                      <link><a href="{% url 'logout' %}" class="btn btn-primary" id="logout">Logout</a></link>
+                      <link><a href="{% url 'passreset' %}" class="btn btn-primary" id="preset">Forgot Password</a></link>
+              </div>
+            </div>
+            <!-- <form method="POST">
+              {% csrf_token %} -->
+              <div id="chatbot">
+                <p class="botText"><span>Hi i'm your Chatbot</span></p>>
+            </div>
+            <div id="userInput">
+                  <input type="text" id="textInput" name="userMessage" placeholder="Type your message...">
+                  <input type="submit" value="search" id="buttonInput" />
+            </div>
+            <!-- </form> -->
+        </div>
+    </div>
+
+    <script>
+      function getUserResponse(){
+          var userText = $('#textInput').val();
+          var userHTML = "<p class='userText'>User: <span>"+userText+"</span/></p>";
+          $('#textInput').val("");
+
+          $('#chatbot').append(userHTML);
+
+
+          $.get('/home/getResponse',{userMessage:userText}).done(function(data){
+            var returnedMessage = "<p class='botText'>Chatbot: <span>"+ data +"</span/></P>";
+            $('#chatbot').append(returnedMessage);
+          })
+      }
+
+      $('#buttonInput').click(function(){
+        getUserResponse();
+      })
+      
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <!-- <link rel="stylesheet" href="login.css"> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+  /* background: linear-gradient(to right, #1d5e29, #344c63, #4d3462, #1e524c); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  background-color: #e0d3d3
+} 
+
+.container {
+  /* background: linear-gradient(to right,#80D0C7, #800080); */
+  background-color: rgba(255, 255, 255, 0.15);
+  padding: 50px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+  /* box-shadow:6px 8px #1d1b1b; */
+}
+
+h2 {
+  font-size: 50px;
+  text-align: center;
+  color: #000000;
+}
+
+form {
+  margin-top: 20px;
+}
+
+h1{
+  font-size: 15px;
+  text-align: center;
+  margin-top: 25px;
+}
+a:link {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: rgb(0, 0, 0);
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: rgb(184, 48, 48);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: rgb(209, 141, 81);
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.input-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #000000;
+  font-weight: bold;
+}
+
+input {
+  width: 94%;
+  height: 25px;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: rgba(0, 0, 0, 0.15);
+  color: #000000;
+  /* box-shadow:6px 8px #1d1b1b; */
+}
+
+.captcha {
+  width: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+img {
+  margin-left: 10px;
+  height: 30px;
+  width: 100px;
+}
+
+button {
+  width: 100%;
+  position: relative;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  background-color: #177b66;
+  font-weight: bold;
+  cursor: pointer;
+  top: 20px;
+  /* box-shadow:6px 8px #1d1b1b; */
+}
+
+button:hover {
+  background-color: #d3c6c6;
+}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Login</h2>
+    <form action="" method="post">
+      {%csrf_token%}
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="pass" placeholder="Enter your password">
+      </div>
+      <div class="input-group">
+        {{form.captcha_field}}
+      </div>
+      <button type="submit">Login</button>
+      <h1>
+        <a class="text" href="{% url 'signup' %}">Don't have an account</a>
+      </h1>
+    </form>
+  </div>
+</body>
+</html>

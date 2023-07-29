@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up</title>
+  <!-- <link rel="stylesheet" href="signup.css"> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  font-family: "Poppins", sans-serif;
+}
+body {
+    /* background: linear-gradient(to right, #1d5e29, #344c63, #4d3462, #1e524c); */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #e0d3d3;
+    /* background-image: url("https://media.istockphoto.com/id/1370884809/photo/futuristic-dots-pattern-on-dark-background-colored-music-wave-big-data-technology-or-science.webp?b=1&s=170667a&w=0&k=20&c=926kdy726O7Xhpw1gtV44ZifqSXI_QsqtDd-zrUiDus="); */
+  }
+  
+  .container {
+    background-color: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
+    /* background: linear-gradient(to right,#b98866, #a14d76); */
+    /* box-shadow:6px 8px #1d1b1b; */
+  }
+  
+  h2 {
+    font-size: 50px;
+    text-align: center;
+    color: #000000;
+  }
+  
+  form {
+    margin-top: 20px;
+  }
+
+  h1{
+    font-size: 15px;
+    text-align: center;
+    margin-top: 25px;
+  }
+  a:link {
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:visited {
+    color: rgb(0, 0, 0);
+    background-color: transparent;
+    text-decoration: none;
+  }
+
+  a:hover {
+    color: rgb(184, 48, 48);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+
+  a:active {
+    color: rgb(62, 33, 177);
+    background-color: transparent;
+    text-decoration: underline;
+  }
+  
+  .input-group {
+    margin-bottom: 20px;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+    color: #000000;
+    font-weight: bold;
+  }
+  
+  input {
+    width: 300px;
+    height: 5px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.15);
+    color: #000000;
+    /* box-shadow:6px 8px #1d1b1b; */
+  }
+  
+  button {
+    width: 100%;
+    align-self: center;
+    padding: 10px;
+    border: none;
+    border-radius: 10px;
+    /* background: linear-gradient(to right, #ff00cc, #333399); */
+    color: #000000;
+    background-color: #177b66;
+    font-weight: bold;
+    cursor: pointer;
+    /* box-shadow:6px 8px #1d1b1b; */
+  }
+  
+  button:hover {
+    background-color: #d3c6c6;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Sign Up</h2>
+    <form action="" method="post">
+      {% csrf_token %}
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" placeholder="Enter your username">
+      </div>
+      <div class="input-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="Enter your email">
+      </div>
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password1" name="password1" placeholder="Enter your password">
+      </div>
+      <div class="input-group">
+        <label for="confirm-password">Confirm Password</label>
+        <input type="password" id="password2" name="password2" placeholder="Confirm your password">
+      </div>
+      <button type="submit">Sign Up</button>
+      <h1>
+        <a href="{% url 'login' %}">Already have an account</a>
+      </h1>
+    </form>
+  </div>
+</body>
+</html>

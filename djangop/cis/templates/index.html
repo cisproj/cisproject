@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link rel="stylesheet" href="index.css"> -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+* {
+  font-family: "Poppins", sans-serif;
+}
+/* * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+} */
+
+body {
+  background-image: url("https://i.pinimg.com/originals/96/e8/57/96e85774e029ded883ee5007eb67d3d0.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  margin: auto;
+  padding: auto;
+  /* object-fit: contain; */
+  background-color: #000000;
+  /* overflow-y: hidden;
+  overflow-x: hidden; */
+}
+
+::-webkit-scrollbar{
+  display: none;
+}
+
+.scroll{
+  -ms-overflow-style: none;
+  scrollbar-width: none; 
+}
+
+header {
+  /* background: rgba(220, 210, 210, 0.5); */
+  backdrop-filter: blur(10px);
+  font-size: 15px;
+  padding: 20px;
+  font-weight: bold;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  text-decoration: none;
+  /* color: #97BC62; */
+  color: #000000;
+  padding: 10px;
+  transition: 0.3s;
+  margin-right: 50px;
+  text-align: center;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+nav ul li a.active,
+nav ul li a:hover {
+  background-color: rgba(188, 180, 180, 0.5);
+  border-radius: 20px;
+}
+
+section {
+  text-align: center;
+  margin: 50px auto;
+  max-width: 600px;
+  padding: 10px;
+  /* background: rgba(255, 255, 255, 0.5); */
+  backdrop-filter: blur(5px);
+  border-radius: 10px;
+}
+
+h1 {
+  /* color: #97BC62; */
+  font-size: 50px;
+  margin-bottom: 20px;
+  color: #000000;
+}
+
+p {
+  /* color: #97BC62; */
+  color: #000000;
+  font-size: 18px;
+}
+.logo img {
+  margin-top: 30px;
+  margin-bottom: 20px;
+  height: 80px;
+  width: 80px;
+  border-radius: 20px;
+}
+
+footer {
+  text-align: center;
+  backdrop-filter: blur(10px);
+  padding: 10px;
+  margin-top: 150px;
+  align-items: stretch;
+  align-content: stretch;
+
+}
+
+footer p {
+  /* color: #97BC62; */
+  color: #000000;
+}
+
+  </style>
+  <title>Homepage</title>
+</head>
+<body>
+  <header>
+    <nav>
+      <ul>
+        <li><a href="{% url 'login' %}">Log in</a></li>
+        <li><a href="{% url 'signup' %}">Sign up</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section>
+    <h1>AI chatBOT</h1>
+    <p>welcome to the world of AI.</p>
+    <div class="logo">
+      <!-- Website symbol/logo -->
+      <img src="https://img.freepik.com/premium-vector/ai-technology-digital-artificial-intelligence-future-circuit-electronic-colorful-vector-logo-design_216988-1080.jpg" alt="Website Logo">
+  </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2023 MMMA. All rights reserved.</p>
+  </footer>
+</body>
+</html>
