@@ -5,7 +5,6 @@ from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 # from .models import *
 from home.models import Student,Department,Faculty
-from .forms import CaptchaTestForm
 
 
 # from django.views.generic import ListView, DetailView
@@ -18,10 +17,6 @@ def homepage(request):
 
 def signuppage(request):
     if request.method == 'POST':
-        form = CaptchaTestForm(request.POST)
-        if not form.is_valid():
-            messages.error(request, 'something went wrong.')
-            return render(request, 'app_home/login.html', {'form': form})
         uname=request.POST.get('username')
         email=request.POST.get('email')
         pass1=request.POST.get('password1')

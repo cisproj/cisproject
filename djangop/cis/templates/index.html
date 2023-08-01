@@ -59,7 +59,7 @@ nav ul li a {
   text-decoration: none;
   /* color: #97BC62; */
   color: #000000;
-  padding: 10px;
+  padding: 5px;
   transition: 0.3s;
   margin-right: 50px;
   text-align: center;
@@ -71,6 +71,19 @@ nav ul li a.active,
 nav ul li a:hover {
   background-color: rgba(188, 180, 180, 0.5);
   border-radius: 20px;
+}
+
+.search-input {
+  border-radius: 20px;
+  background-color: #AEEEEE;
+  color: #FFFFFF;
+  background-color: transparent;
+}
+
+.search-button {
+  background-color: rgb(113, 113, 113);
+  border-radius: 20px;
+  background-color: transparent;
 }
 
 section {
@@ -127,6 +140,10 @@ footer p {
       <ul>
         <li><a href="{% url 'login' %}">Log in</a></li>
         <li><a href="{% url 'signup' %}">Sign up</a></li>
+        <li class="search-bar">
+          <input type="text" class="search-input" placeholder="Search...">
+          <button class="search-button">Search</button>
+        </li>
       </ul>
     </nav>
   </header>
